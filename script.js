@@ -1,32 +1,40 @@
 let dustCount = 0;
 let dustPerSecond = 0;
 
-// Item prices (starting prices)
-let mickeyHatPrice = 10;
-let vanellopePrice = 15;
-let wreckItRalphPrice = 20; // Example price for another upgrade
-let donaldDuckPrice = 25;  // Example price for another upgrade
-let frozenUpgradePrice = 30; // Example price for another upgrade
-let toyStoryPrice = 40; // Example price for another upgrade
+// Inventory to track the number of upgrades purchased
+let inventory = {
+  mickeyHat: 0,
+  vanellopeKart: 0,
+  geniesLamp: 0,
+  lightningMcQueen: 0,
+  elsasCastle: 0,
+  mauisFishHook: 0
+};
 
-// Current prices (to be adjusted by 1.5x after each purchase)
-let currentMickeyHatPrice = mickeyHatPrice;
-let currentVanellopePrice = vanellopePrice;
-let currentWreckItRalphPrice = wreckItRalphPrice;
-let currentDonaldDuckPrice = donaldDuckPrice;
-let currentFrozenUpgradePrice = frozenUpgradePrice;
-let currentToyStoryPrice = toyStoryPrice;
+// Original prices for each upgrade (these values will increase by 1.5x after each purchase)
+let mickeyHatPrice = 10;
+let vanellopeKartPrice = 50;
+let geniesLampPrice = 500;
+let lightningMcQueenPrice = 750;
+let elsasCastlePrice = 1000;
+let mauisFishHookPrice = 2000;
 
 // DOM Elements
 const dustCountElement = document.getElementById("dust-count");
 const dustPerSecondElement = document.getElementById("dust-per-second");
 const collectButton = document.getElementById("collect-button");
-const buyMickeyHatButton = document.getElementById("buy-mickey-hat");
-const buyVanellopeButton = document.getElementById("buy-vanellope");
-const buyWreckItRalphButton = document.getElementById("buy-wreck-it-ralph");
-const buyDonaldDuckButton = document.getElementById("buy-donald-duck");
-const buyFrozenUpgradeButton = document.getElementById("buy-frozen-upgrade");
-const buyToyStoryButton = document.getElementById("buy-toy-story");
+
+// Upgrade buttons
+const buyMickeyHatButton = document.getElementById("buy-mickeys-hat");
+const buyVanellopeKartButton = document.getElementById("buy-vanellopes-kart");
+const buyGeniesLampButton = document.getElementById("buy-genies-lamp");
+const buyLightningMcQueenButton = document.getElementById("buy-lightning-mcqueen");
+const buyElsasCastleButton = document.getElementById("buy-elsas-castle");
+const buyMauisFishHookButton = document.getElementById("buy-mauis-fish-hook");
+
+// Inventory Toggle Button
+const inventoryToggleButton = document.getElementById("inventory-toggle");
+const inventorySection = document.getElementById("inventory");
 
 // Collect Pixie Dust
 collectButton.addEventListener("click", () => {
@@ -34,101 +42,105 @@ collectButton.addEventListener("click", () => {
   updateUI();
 });
 
-// Buy Mickey's Sorcerer Hat
+// Buy Upgrades with increasing prices
 buyMickeyHatButton.addEventListener("click", () => {
-  if (dustCount >= currentMickeyHatPrice) {
-    dustCount -= currentMickeyHatPrice;
-    dustPerSecond += 1;
-    currentMickeyHatPrice = Math.ceil(mickeyHatPrice * Math.pow(1.5, 1)); // Increase price by 1.5x
-    buyMickeyHatButton.textContent = `Purchased!`; // Change the button text
-    buyMickeyHatButton.disabled = true; // Disable the button after purchase
+  if (dustCount >= mickeyHatPrice) {
+    dustCount -= mickeyHatPrice;
+    inventory.mickeyHat++;
+    dustPerSecond++;
+    mickeyHatPrice = Math.ceil(mickeyHatPrice * 1.5);  // Increase price by 1.5x
     updateUI();
   }
 });
 
-// Buy Vanellope's Upgrade
-buyVanellopeButton.addEventListener("click", () => {
-  if (dustCount >= currentVanellopePrice) {
-    dustCount -= currentVanellopePrice;
+buyVanellopeKartButton.addEventListener("click", () => {
+  if (dustCount >= vanellopeKartPrice) {
+    dustCount -= vanellopeKartPrice;
+    inventory.vanellopeKart++;
     dustPerSecond += 2;
-    currentVanellopePrice = Math.ceil(vanellopePrice * Math.pow(1.5, 1)); // Increase price by 1.5x
-    buyVanellopeButton.textContent = `Purchased!`; // Change the button text
-    buyVanellopeButton.disabled = true; // Disable the button after purchase
+    vanellopeKartPrice = Math.ceil(vanellopeKartPrice * 1.5);  // Increase price by 1.5x
     updateUI();
   }
 });
 
-// Buy Wreck-It Ralph's Upgrade
-buyWreckItRalphButton.addEventListener("click", () => {
-  if (dustCount >= currentWreckItRalphPrice) {
-    dustCount -= currentWreckItRalphPrice;
-    dustPerSecond += 3; // Example of a different effect
-    currentWreckItRalphPrice = Math.ceil(wreckItRalphPrice * Math.pow(1.5, 1)); // Increase price by 1.5x
-    buyWreckItRalphButton.textContent = `Purchased!`; // Change the button text
-    buyWreckItRalphButton.disabled = true; // Disable the button after purchase
+buyGeniesLampButton.addEventListener("click", () => {
+  if (dustCount >= geniesLampPrice) {
+    dustCount -= geniesLampPrice;
+    inventory.geniesLamp++;
+    dustPerSecond += 5;
+    geniesLampPrice = Math.ceil(geniesLampPrice * 1.5);  // Increase price by 1.5x
     updateUI();
   }
 });
 
-// Buy Donald Duck's Upgrade
-buyDonaldDuckButton.addEventListener("click", () => {
-  if (dustCount >= currentDonaldDuckPrice) {
-    dustCount -= currentDonaldDuckPrice;
-    dustPerSecond += 4; // Example of a different effect
-    currentDonaldDuckPrice = Math.ceil(donaldDuckPrice * Math.pow(1.5, 1)); // Increase price by 1.5x
-    buyDonaldDuckButton.textContent = `Purchased!`; // Change the button text
-    buyDonaldDuckButton.disabled = true; // Disable the button after purchase
+buyLightningMcQueenButton.addEventListener("click", () => {
+  if (dustCount >= lightningMcQueenPrice) {
+    dustCount -= lightningMcQueenPrice;
+    inventory.lightningMcQueen++;
+    dustPerSecond *= 2;
+    lightningMcQueenPrice = Math.ceil(lightningMcQueenPrice * 1.5);  // Increase price by 1.5x
     updateUI();
   }
 });
 
-// Buy Frozen Upgrade
-buyFrozenUpgradeButton.addEventListener("click", () => {
-  if (dustCount >= currentFrozenUpgradePrice) {
-    dustCount -= currentFrozenUpgradePrice;
-    dustPerSecond += 5; // Example of a different effect
-    currentFrozenUpgradePrice = Math.ceil(frozenUpgradePrice * Math.pow(1.5, 1)); // Increase price by 1.5x
-    buyFrozenUpgradeButton.textContent = `Purchased!`; // Change the button text
-    buyFrozenUpgradeButton.disabled = true; // Disable the button after purchase
+buyElsasCastleButton.addEventListener("click", () => {
+  if (dustCount >= elsasCastlePrice) {
+    dustCount -= elsasCastlePrice;
+    inventory.elsasCastle++;
+    dustPerSecond += 10;
+    elsasCastlePrice = Math.ceil(elsasCastlePrice * 1.5);  // Increase price by 1.5x
     updateUI();
   }
 });
 
-// Buy Toy Story Upgrade
-buyToyStoryButton.addEventListener("click", () => {
-  if (dustCount >= currentToyStoryPrice) {
-    dustCount -= currentToyStoryPrice;
-    dustPerSecond += 6; // Example of a different effect
-    currentToyStoryPrice = Math.ceil(toyStoryPrice * Math.pow(1.5, 1)); // Increase price by 1.5x
-    buyToyStoryButton.textContent = `Purchased!`; // Change the button text
-    buyToyStoryButton.disabled = true; // Disable the button after purchase
+buyMauisFishHookButton.addEventListener("click", () => {
+  if (dustCount >= mauisFishHookPrice) {
+    dustCount -= mauisFishHookPrice;
+    inventory.mauisFishHook++;
+    dustPerSecond *= 2;
+    mauisFishHookPrice = Math.ceil(mauisFishHookPrice * 1.5);  // Increase price by 1.5x
     updateUI();
   }
 });
 
-// Update UI
+// Toggle Inventory Visibility
+inventoryToggleButton.addEventListener("click", () => {
+  const isVisible = inventorySection.style.display === "block";
+  inventorySection.style.display = isVisible ? "none" : "block";
+  inventoryToggleButton.textContent = isVisible ? "Show Inventory" : "Hide Inventory";
+});
+
+// Update UI (display dust count, upgrades, and prices)
 function updateUI() {
   dustCountElement.textContent = dustCount;
   dustPerSecondElement.textContent = dustPerSecond;
 
-  // Update prices on the buttons
-  buyMickeyHatButton.textContent = `Buy Mickey's Hat ($${currentMickeyHatPrice})`;
-  buyVanellopeButton.textContent = `Buy Vanellope's Upgrade ($${currentVanellopePrice})`;
-  buyWreckItRalphButton.textContent = `Buy Wreck-It Ralph's Upgrade ($${currentWreckItRalphPrice})`;
-  buyDonaldDuckButton.textContent = `Buy Donald Duck's Upgrade ($${currentDonaldDuckPrice})`;
-  buyFrozenUpgradeButton.textContent = `Buy Frozen Upgrade ($${currentFrozenUpgradePrice})`;
-  buyToyStoryButton.textContent = `Buy Toy Story Upgrade ($${currentToyStoryPrice})`;
+  // Update Inventory display
+  document.getElementById("mickey-hat-count").textContent = inventory.mickeyHat;
+  document.getElementById("vanellope-kart-count").textContent = inventory.vanellopeKart;
+  document.getElementById("genies-lamp-count").textContent = inventory.geniesLamp;
+  document.getElementById("lightning-mcqueen-count").textContent = inventory.lightningMcQueen;
+  document.getElementById("elsas-castle-count").textContent = inventory.elsasCastle;
+  document.getElementById("mauis-fish-hook-count").textContent = inventory.mauisFishHook;
+
+  // Update button text to show the current price
+  buyMickeyHatButton.textContent = `Buy Mickey's Hat ($${mickeyHatPrice})`;
+  buyVanellopeKartButton.textContent = `Buy Vanellope's Kart ($${vanellopeKartPrice})`;
+  buyGeniesLampButton.textContent = `Buy Genie's Lamp ($${geniesLampPrice})`;
+  buyLightningMcQueenButton.textContent = `Buy Lightning McQueen ($${lightningMcQueenPrice})`;
+  buyElsasCastleButton.textContent = `Buy Elsa's Castle ($${elsasCastlePrice})`;
+  buyMauisFishHookButton.textContent = `Buy Maui's Fish Hook ($${mauisFishHookPrice})`;
 
   // Enable/disable the buttons based on available Pixie Dust
-  buyMickeyHatButton.disabled = dustCount < currentMickeyHatPrice;
-  buyVanellopeButton.disabled = dustCount < currentVanellopePrice;
-  buyWreckItRalphButton.disabled = dustCount < currentWreckItRalphPrice;
-  buyDonaldDuckButton.disabled = dustCount < currentDonaldDuckPrice;
-  buyFrozenUpgradeButton.disabled = dustCount < currentFrozenUpgradePrice;
-  buyToyStoryButton.disabled = dustCount < currentToyStoryPrice;
+  buyMickeyHatButton.disabled = dustCount < mickeyHatPrice;
+  buyVanellopeKartButton.disabled = dustCount < vanellopeKartPrice;
+  buyGeniesLampButton.disabled = dustCount < geniesLampPrice;
+  buyLightningMcQueenButton.disabled = dustCount < lightningMcQueenPrice;
+  buyElsasCastleButton.disabled = dustCount < elsasCastlePrice;
+  buyMauisFishHookButton.disabled = dustCount < mauisFishHookPrice;
 }
 
-// Automate Dust Generation
+// Auto-collect Pixie Dust per second
 setInterval(() => {
   dustCount += dustPerSecond;
   updateUI();
