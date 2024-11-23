@@ -42,7 +42,7 @@ h2 {
 button {
   position: relative; /* Ensures the tooltip is positioned relative to the button */
   background-color: #4a90e2;
-  color: white;
+  color: black;
   font-size: 1.1rem;
   font-weight: bold;
   border: none;
@@ -120,7 +120,7 @@ footer {
   top: 20px;
   left: 20px;
   background-color: #6A0DAD;
-  color: #fff;
+  color: black;
   padding: 10px 20px;
   font-size: 1rem;
   border-radius: 25px;
