@@ -12,7 +12,7 @@ body {
   justify-content: flex-start; /* Align the content to the top */
   align-items: center; /* Horizontally centers the content */
   min-height: 100vh; /* Ensures the body takes up the full height of the viewport */
-  overflow-y: auto; /* Allow vertical scrolling */
+  overflow-y: scroll; /* Enables scroll when content exceeds the viewport */
   box-sizing: border-box; /* Ensures padding doesn't affect overall dimensions */
 }
 
@@ -122,4 +122,23 @@ footer {
 
 #inventory-toggle:hover {
   background-color: #e07b00;
+}
+
+/* Custom Scrollbar */
+body::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #4a90e2; /* Color of the scrollbar */
+  border-radius: 10px; /* Rounded edges of the scrollbar */
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background-color: #2c78c9; /* Hover color for scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.1); /* Track color of the scrollbar */
+  border-radius: 10px;
 }
