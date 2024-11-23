@@ -112,7 +112,7 @@ footer {
   position: absolute;
   top: 20px;
   left: 20px;
-  background-color: #ff8c00;
+  background-color: #6A0DAD;
   color: #fff;
   padding: 10px 20px;
   font-size: 1rem;
@@ -122,7 +122,7 @@ footer {
 }
 
 #inventory-toggle:hover {
-  background-color: #e07b00;
+  background-color: #6A0DAD;
 }
 
 /* Custom Scrollbar */
