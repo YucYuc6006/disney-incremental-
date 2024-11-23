@@ -1,37 +1,114 @@
+/* General Body Styling */
 body {
-    font-family: "Arial", sans-serif;
-    background-color: #f5f5f5;
-    color: #333;
-    text-align: center;
-    margin: 0;
-    padding: 20px;
-  }
-  
-  #game {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
-  
-  button:hover:not(:disabled) {
-    background-color: #0056b3;
-  }
-  
+  font-family: 'Poppins', sans-serif; /* Whimsical font */
+  background: linear-gradient(to bottom, #a2d9ff, #e3f2fd); /* Soft blue gradient */
+  color: #222;
+  text-align: center;
+  padding: 20px;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Main Title */
+h1, h2 {
+  font-family: 'Fredoka One', cursive; /* Fun and playful Disney-style font */
+  color: #00509e;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Adds some magical depth */
+}
+
+/* Pixie Dust Count Styling */
+#dust-count,
+#dust-per-second {
+  font-size: 2rem;
+  color: #0077cc;
+  margin: 10px 0;
+}
+
+/* Buttons */
+button {
+  background-color: #008CBA; /* Disney blue */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 15px; /* Rounded for cuteness */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #005f8e; /* Darker blue for hover */
+  transform: scale(1.05); /* Slight pop-out effect */
+}
+
+button:disabled {
+  background-color: #c1e1f9; /* Light blue-gray for disabled */
+  cursor: not-allowed;
+}
+
+/* Collect Button */
+#collect-button {
+  font-size: 1.2rem;
+  padding: 15px 25px;
+  font-weight: bold;
+  background-color: #ffcb42; /* Golden glow for collecting */
+  color: #222;
+}
+
+#collect-button:hover {
+  background-color: #e6b537; /* Darker gold */
+  transform: scale(1.1);
+}
+
+/* Upgrades Section */
+#upgrades {
+  margin-top: 30px;
+  padding: 20px;
+  border: 2px solid #0077cc; /* Blue border */
+  border-radius: 20px;
+  background-color: #d8f2ff; /* Very light blue */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Upgrade Buttons */
+#upgrades button {
+  font-size: 0.9rem;
+  padding: 10px 15px;
+  background-color: #a2d9ff; /* Light blue for Disney magic */
+}
+
+#upgrades button:hover {
+  background-color: #80c3e6; /* Brighter hover effect */
+}
+
+/* Footer */
+footer {
+  margin-top: auto;
+  font-size: 0.9rem;
+  color: #555;
+  font-family: 'Poppins', sans-serif;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Add a Magic Sparkle Effect */
+body:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: url('https://i.ibb.co/mvYzxVd/sparkles.png') repeat; /* A sparkles texture */
+  opacity: 0.2;
+  z-index: -1;
+}
