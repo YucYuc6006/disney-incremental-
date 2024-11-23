@@ -9,42 +9,45 @@
 <body>
     <div id="game-container">
         <h1 class="title">Disney Incremental</h1>
+
+        <!-- Pixie Dust Information -->
         <div id="dust-info">
             <p>Pixie Dust: <span id="dust-count">0</span> ✨</p>
-            <!-- Collect button moved here -->
             <button id="collect-button">Collect Pixie Dust</button>
             <p>Dust Per Second: <span id="dust-per-second">0</span></p>
         </div>
-        
-        <!-- Upgrade buttons as actual <button> elements -->
-        <button class="upgrade-button" id="buy-mickeys-hat" data-tooltip="This upgrade increases your dust per second!">
-            Buy Mickey's Hat (✨10)
-        </button>
-        <button class="upgrade-button" id="buy-vanellopes-kart" data-tooltip="Vanellope's Kart adds 2 dust per second!">
-            Buy Vanellope's Kart (✨50)
-        </button>
-        <button class="upgrade-button" id="buy-genies-lamp" data-tooltip="Genie's Lamp adds 5 dust per second!">
-            Buy Genie's Lamp (✨500)
-        </button>
-        <button class="upgrade-button" id="buy-lightning-mcqueen" data-tooltip="Lightning McQueen doubles your dust per second!">
-            Buy Lightning McQueen (✨750)
-        </button>
-        <button class="upgrade-button" id="buy-elsas-castle" data-tooltip="Elsa's Castle adds 10 dust per second!">
-            Buy Elsa's Castle (✨1000)
-        </button>
-        <button class="upgrade-button" id="buy-mauis-fish-hook" data-tooltip="Maui's Fish Hook doubles your dust per second!">
-            Buy Maui's Fish Hook (✨2000)
-        </button>
 
-        <!-- Inventory Button -->
+        <!-- Upgrade Buttons -->
+        <div id="upgrades">
+            <button class="upgrade-button" data-upgrade="Mickey's Hat">
+                Buy Mickey's Hat (✨10)
+            </button>
+            <button class="upgrade-button" data-upgrade="Vanellope's Kart">
+                Buy Vanellope's Kart (✨50)
+            </button>
+            <button class="upgrade-button" data-upgrade="Genie's Lamp">
+                Buy Genie's Lamp (✨500)
+            </button>
+            <button class="upgrade-button" data-upgrade="Lightning McQueen">
+                Buy Lightning McQueen (✨750)
+            </button>
+            <button class="upgrade-button" data-upgrade="Elsa's Castle">
+                Buy Elsa's Castle (✨1000)
+            </button>
+            <button class="upgrade-button" data-upgrade="Maui's Fish Hook">
+                Buy Maui's Fish Hook (✨2000)
+            </button>
+        </div>
+
+        <!-- Inventory Toggle Button -->
         <button id="inventory-toggle">Show Inventory</button>
 
         <!-- Inventory Section -->
         <div id="inventory" style="display:none;">
             <h2>Inventory</h2>
             <ul>
-                <li>Mickey's Hat: <span id="mickey-hat-count">0</span></li>
-                <li>Vanellope's Kart: <span id="vanellope-kart-count">0</span></li>
+                <li>Mickey's Hat: <span id="mickeys-hat-count">0</span></li>
+                <li>Vanellope's Kart: <span id="vanellopes-kart-count">0</span></li>
                 <li>Genie's Lamp: <span id="genies-lamp-count">0</span></li>
                 <li>Lightning McQueen: <span id="lightning-mcqueen-count">0</span></li>
                 <li>Elsa's Castle: <span id="elsas-castle-count">0</span></li>
