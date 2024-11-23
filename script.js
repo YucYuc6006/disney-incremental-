@@ -1,28 +1,26 @@
-// Game Variables
 let dustCount = 0;
 let dustPerSecond = 0;
-
-// Upgrade Costs and Status
-const upgrades = {
-  mickeyHat: { cost: 10, purchased: false, name: "Mickey's Sorcerer Hat" },
-  vanellopeKart: { cost: 50, purchased: false, name: "Vanellope's Candy Kart" },
-  elsaCastle: { cost: 200, purchased: false, name: "Elsa's Ice Castle" },
-  genieLamp: { cost: 500, purchased: false, name: "Genie's Lamp" },
-  lightningBoost: { cost: 750, purchased: false, name: "Lightning McQueen's Nitro Boost" },
-  mauiHook: { cost: 1000, purchased: false, name: "Maui's Fish Hook" }
+let inventory = {
+  mickeyHat: 0,
+  vanellopeKart: 0,
+  geniesLamp: 0,
+  lightningMcQueen: 0,
+  elsasCastle: 0,
+  mauisFishHook: 0
 };
 
 // DOM Elements
 const dustCountElement = document.getElementById("dust-count");
 const dustPerSecondElement = document.getElementById("dust-per-second");
 const collectButton = document.getElementById("collect-button");
-const buyMickeyHatButton = document.getElementById("buy-mickey-hat");
-const buyVanellopeKartButton = document.getElementById("buy-vanellope-kart");
-const buyElsaCastleButton = document.getElementById("buy-elsa-castle");
-const buyGenieLampButton = document.getElementById("buy-genie-lamp");
-const buyLightningBoostButton = document.getElementById("buy-lightning-boost");
-const buyMauiHookButton = document.getElementById("buy-maui-hook");
-const inventoryList = document.getElementById("inventory-list");
+
+// Upgrade buttons
+const buyMickeyHatButton = document.getElementById("buy-mickeys-hat");
+const buyVanellopeKartButton = document.getElementById("buy-vanellopes-kart");
+const buyGeniesLampButton = document.getElementById("buy-genies-lamp");
+const buyLightningMcQueenButton = document.getElementById("buy-lightning-mcqueen");
+const buyElsasCastleButton = document.getElementById("buy-elsas-castle");
+const buyMauisFishHookButton = document.getElementById("buy-mauis-fish-hook");
 
 // Collect Pixie Dust
 collectButton.addEventListener("click", () => {
@@ -30,89 +28,76 @@ collectButton.addEventListener("click", () => {
   updateUI();
 });
 
-// Purchase Function
-function purchaseUpgrade(upgradeKey, buttonElement, effect) {
-  const upgrade = upgrades[upgradeKey];
-  if (dustCount >= upgrade.cost && !upgrade.purchased) {
-    dustCount -= upgrade.cost;
-    upgrade.purchased = true;
-    buttonElement.textContent = "Purchased"; // Updates button text
-    buttonElement.disabled = true; // Disables the button after purchase
-
-    // Apply the upgrade effect
-    effect();
-
-    // Add to inventory
-    addToInventory(upgrade.name);
-
+// Buy Upgrades
+buyMickeyHatButton.addEventListener("click", () => {
+  if (dustCount >= 10) {
+    dustCount -= 10;
+    inventory.mickeyHat++;
+    dustPerSecond++;
     updateUI();
   }
-}
+});
 
-// Add Upgrade to Inventory
-function addToInventory(upgradeName) {
-  const listItem = document.createElement("li");
-  listItem.textContent = upgradeName; // Adds the name of the purchased upgrade
-  inventoryList.appendChild(listItem); // Appends it to the inventory list
-}
+buyVanellopeKartButton.addEventListener("click", () => {
+  if (dustCount >= 50) {
+    dustCount -= 50;
+    inventory.vanellopeKart++;
+    dustPerSecond += 2;
+    updateUI();
+  }
+});
 
-// Upgrades
-buyMickeyHatButton.addEventListener("click", () =>
-  purchaseUpgrade("mickeyHat", buyMickeyHatButton, () => (dustPerSecond += 1))
-);
+buyGeniesLampButton.addEventListener("click", () => {
+  if (dustCount >= 500) {
+    dustCount -= 500;
+    inventory.geniesLamp++;
+    dustPerSecond += 5;
+    updateUI();
+  }
+});
 
-buyVanellopeKartButton.addEventListener("click", () =>
-  purchaseUpgrade("vanellopeKart", buyVanellopeKartButton, () =>
-    collectButton.addEventListener("click", () => (dustCount += 1))
-  )
-);
+buyLightningMcQueenButton.addEventListener("click", () => {
+  if (dustCount >= 750) {
+    dustCount -= 750;
+    inventory.lightningMcQueen++;
+    dustPerSecond *= 2;
+    updateUI();
+  }
+});
 
-buyElsaCastleButton.addEventListener("click", () =>
-  purchaseUpgrade("elsaCastle", buyElsaCastleButton, () => (dustPerSecond *= 1.5))
-);
+buyElsasCastleButton.addEventListener("click", () => {
+  if (dustCount >= 200) {
+    dustCount -= 200;
+    inventory.elsasCastle++;
+    dustPerSecond += 10;
+    updateUI();
+  }
+});
 
-buyGenieLampButton.addEventListener("click", () =>
-  purchaseUpgrade("genieLamp", buyGenieLampButton, () => {
-    setInterval(() => {
-      const randomBonus = Math.floor(Math.random() * 100) + 50; // Random bonus between 50-150
-      dustCount += randomBonus;
-      alert(`Genie granted you ${randomBonus} Pixie Dust!`);
-      updateUI();
-    }, 30000); // Grants bonus every 30 seconds
-  })
-);
-
-buyLightningBoostButton.addEventListener("click", () =>
-  purchaseUpgrade("lightningBoost", buyLightningBoostButton, () => {
-    setInterval(() => {
-      let boostActive = true;
-      collectButton.addEventListener("click", () => {
-        if (boostActive) dustCount += 4; // Adds +5 total per click
-      });
-      setTimeout(() => (boostActive = false), 10000); // Lasts 10 seconds
-    }, 60000); // Activates every 60 seconds
-  })
-);
-
-buyMauiHookButton.addEventListener("click", () =>
-  purchaseUpgrade("mauiHook", buyMauiHookButton, () => (dustPerSecond += 5))
-);
+buyMauisFishHookButton.addEventListener("click", () => {
+  if (dustCount >= 1000) {
+    dustCount -= 1000;
+    inventory.mauisFishHook++;
+    dustPerSecond *= 2;
+    updateUI();
+  }
+});
 
 // Update UI
 function updateUI() {
   dustCountElement.textContent = dustCount;
   dustPerSecondElement.textContent = dustPerSecond;
 
-  // Enable/Disable Buttons
-  buyMickeyHatButton.disabled = dustCount < upgrades.mickeyHat.cost || upgrades.mickeyHat.purchased;
-  buyVanellopeKartButton.disabled = dustCount < upgrades.vanellopeKart.cost || upgrades.vanellopeKart.purchased;
-  buyElsaCastleButton.disabled = dustCount < upgrades.elsaCastle.cost || upgrades.elsaCastle.purchased;
-  buyGenieLampButton.disabled = dustCount < upgrades.genieLamp.cost || upgrades.genieLamp.purchased;
-  buyLightningBoostButton.disabled = dustCount < upgrades.lightningBoost.cost || upgrades.lightningBoost.purchased;
-  buyMauiHookButton.disabled = dustCount < upgrades.mauiHook.cost || upgrades.mauiHook.purchased;
+  // Update Inventory display
+  document.getElementById("mickey-hat-count").textContent = inventory.mickeyHat;
+  document.getElementById("vanellope-kart-count").textContent = inventory.vanellopeKart;
+  document.getElementById("genies-lamp-count").textContent = inventory.geniesLamp;
+  document.getElementById("lightning-mcqueen-count").textContent = inventory.lightningMcQueen;
+  document.getElementById("elsas-castle-count").textContent = inventory.elsasCastle;
+  document.getElementById("mauis-fish-hook-count").textContent = inventory.mauisFishHook;
 }
 
-// Automate Dust Generation
+// Auto-collect Pixie Dust per second
 setInterval(() => {
   dustCount += dustPerSecond;
   updateUI();
