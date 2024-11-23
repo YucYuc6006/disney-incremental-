@@ -25,14 +25,15 @@ buyMickeyHatButton.addEventListener("click", () => {
 
 // Update UI
 function updateUI() {
+  // Update Pixie Dust and Dust Per Second counters
   dustCountElement.textContent = dustCount;
   dustPerSecondElement.textContent = dustPerSecond;
 
   // Enable/disable Mickey's Hat button based on Pixie Dust count
-  if (dustCount >= 10 && buyMickeyHatButton.disabled === false) {
-    buyMickeyHatButton.disabled = false;
-  } else if (dustCount < 10 && buyMickeyHatButton.disabled === false) {
-    buyMickeyHatButton.disabled = true;
+  if (dustCount >= 10 && dustPerSecond === 0) {
+    buyMickeyHatButton.disabled = false; // Enable button
+  } else {
+    buyMickeyHatButton.disabled = true; // Disable button
   }
 }
 
