@@ -31,7 +31,6 @@ h1 {
   text-shadow: 2px 2px 4px #000000, -2px -2px 4px #000000, 2px -2px 4px #000000, -2px 2px 4px #000000; /* Black border effect */
 }
 
-
 h2 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
@@ -81,8 +80,28 @@ button[data-tooltip]:hover::after {
   transition: opacity 0.2s;
 }
 
+/* Show tooltip when hovering */
 button[data-tooltip]:hover::after {
   opacity: 1; /* Show the tooltip when hovering */
+}
+
+/* Adjust tooltip placement dynamically */
+button[data-tooltip]:hover::after {
+  bottom: auto;
+  top: 100%;
+  transform: translateX(-50%) translateY(10px);
+}
+
+button[data-tooltip].left:hover::after {
+  left: auto;
+  right: 100%;
+  transform: translateX(-10px) translateY(10px);
+}
+
+button[data-tooltip].top:hover::after {
+  top: auto;
+  bottom: 100%;
+  transform: translateX(-50%) translateY(-10px);
 }
 
 /* Upgrade container */
