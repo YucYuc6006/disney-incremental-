@@ -48,13 +48,12 @@ document.querySelectorAll('.upgrade-button').forEach(button => {
 
     if (pixieDust >= price) {
       pixieDust -= price;
-      const dustIncrease = calculateDustPerSecond(upgradeName);
 
       // Handle upgrades that double the current dust per second
       if (upgradeName === "Lightning McQueen" || upgradeName === "Maui's Fish Hook") {
         dustPerSecond *= 2;
       } else {
-        dustPerSecond += dustIncrease;
+        dustPerSecond += calculateDustPerSecond(upgradeName);
       }
 
       inventory[upgradeName]++;
