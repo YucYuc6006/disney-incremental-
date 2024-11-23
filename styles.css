@@ -16,6 +16,7 @@ body {
   overflow-y: scroll; /* Forces vertical scrolling to always be available */
   box-sizing: border-box; /* Ensures padding doesn't affect overall dimensions */
   padding-right: 12px; /* Prevents content from being hidden behind the scrollbar */
+  padding-bottom: 50px; /* Adjusts for footer space */
 }
 
 /* Title and headers */
@@ -24,7 +25,6 @@ h1, h2 {
 }
 
 h1 {
-  font-family: 'Fredoka One', cursive;
   font-size: 3rem;
   margin-bottom: 0.5rem;
   color: #11acac; /* Text color */
@@ -38,6 +38,7 @@ h2 {
   text-shadow: 2px 2px 4px #000000, -2px -2px 4px #000000, 2px -2px 4px #000000, -2px 2px 4px #000000; /* Black border effect */
 }
 
+/* Button styling */
 button {
   position: relative; /* Ensures the tooltip is positioned relative to the button */
   background-color: #4a90e2;
@@ -105,16 +106,18 @@ button[data-tooltip].top:hover::after {
   transform: translateX(-50%) translateY(-10px);
 }
 
-/* Upgrade container */
-#upgrades {
-  margin-top: 20px;
-}
+/* Dust info container */
 #dust-info {
   margin-bottom: 20px; /* Space below the dust info section */
 }
 
 button#collect-button {
   margin-top: 10px; /* Adds space above the collect button */
+}
+
+/* Upgrade container */
+#upgrades {
+  margin-top: 20px;
 }
 
 /* Inventory container */
