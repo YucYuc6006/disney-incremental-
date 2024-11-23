@@ -175,3 +175,10 @@ body::-webkit-scrollbar-track {
 body {
   padding-bottom: 50px; /* Adjust this value based on your footer size */
 }
+#dust-info {
+  margin-bottom: 20px; /* Adds space below the dust info section */
+}
+
+#collect-button {
+  margin-top: 10px; /* Adds space above the collect button */
+}

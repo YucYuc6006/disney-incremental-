@@ -11,29 +11,36 @@
         <h1 class="title">Disney Upgrade Game</h1>
         <div id="dust-info">
             <p>Pixie Dust: <span id="dust-count">0</span> ✨</p>
+            <!-- Move the Collect button here -->
+            <button id="collect-button">Collect Pixie Dust</button>
             <p>Dust Per Second: <span id="dust-per-second">0</span></p>
         </div>
-        <button id="collect-button">Collect Pixie Dust</button>
         
         <!-- Upgrade buttons -->
-        <button class="upgrade-button" id="buy-mickeys-hat" data-tooltip="This upgrade increases your dust per second!">
+        <div class="upgrade-button" id="buy-mickeys-hat">
+            <span class="tooltip">This upgrade increases your dust per second!</span>
             Buy Mickey's Hat (✨10)
-        </button>
-        <button class="upgrade-button" id="buy-vanellopes-kart" data-tooltip="Vanellope's Kart adds 2 dust per second!">
+        </div>
+        <div class="upgrade-button" id="buy-vanellopes-kart">
+            <span class="tooltip">Vanellope's Kart adds 2 dust per second!</span>
             Buy Vanellope's Kart (✨50)
-        </button>
-        <button class="upgrade-button" id="buy-genies-lamp" data-tooltip="Genie's Lamp adds 5 dust per second!">
+        </div>
+        <div class="upgrade-button" id="buy-genies-lamp">
+            <span class="tooltip">Genie's Lamp adds 5 dust per second!</span>
             Buy Genie's Lamp (✨500)
-        </button>
-        <button class="upgrade-button" id="buy-lightning-mcqueen" data-tooltip="Lightning McQueen doubles your dust per second!">
+        </div>
+        <div class="upgrade-button" id="buy-lightning-mcqueen">
+            <span class="tooltip">Lightning McQueen doubles your dust per second!</span>
             Buy Lightning McQueen (✨750)
-        </button>
-        <button class="upgrade-button" id="buy-elsas-castle" data-tooltip="Elsa's Castle adds 10 dust per second!">
+        </div>
+        <div class="upgrade-button" id="buy-elsas-castle">
+            <span class="tooltip">Elsa's Castle adds 10 dust per second!</span>
             Buy Elsa's Castle (✨1000)
-        </button>
-        <button class="upgrade-button" id="buy-mauis-fish-hook" data-tooltip="Maui's Fish Hook doubles your dust per second!">
+        </div>
+        <div class="upgrade-button" id="buy-mauis-fish-hook">
+            <span class="tooltip">Maui's Fish Hook doubles your dust per second!</span>
             Buy Maui's Fish Hook (✨2000)
-        </button>
+        </div>
 
         <!-- Inventory Button -->
         <button id="inventory-toggle">Show Inventory</button>
