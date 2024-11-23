@@ -34,6 +34,8 @@ h1 {
 h2 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
+  color: #11acac; /* Text color */
+  text-shadow: 2px 2px 4px #000000, -2px -2px 4px #000000, 2px -2px 4px #000000, -2px 2px 4px #000000; /* Black border effect */
 }
 
 button {
