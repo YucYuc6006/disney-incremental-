@@ -123,13 +123,13 @@ function updateUI() {
   document.getElementById("elsas-castle-count").textContent = inventory.elsasCastle;
   document.getElementById("mauis-fish-hook-count").textContent = inventory.mauisFishHook;
 
-  // Update button text to show the current price
-  buyMickeyHatButton.textContent = `Buy Mickey's Hat ($${mickeyHatPrice})`;
-  buyVanellopeKartButton.textContent = `Buy Vanellope's Kart ($${vanellopeKartPrice})`;
-  buyGeniesLampButton.textContent = `Buy Genie's Lamp ($${geniesLampPrice})`;
-  buyLightningMcQueenButton.textContent = `Buy Lightning McQueen ($${lightningMcQueenPrice})`;
-  buyElsasCastleButton.textContent = `Buy Elsa's Castle ($${elsasCastlePrice})`;
-  buyMauisFishHookButton.textContent = `Buy Maui's Fish Hook ($${mauisFishHookPrice})`;
+  // Update button text to show the current price with sparkle emoji
+  buyMickeyHatButton.textContent = `Buy Mickey's Hat (✨${mickeyHatPrice})`;
+  buyVanellopeKartButton.textContent = `Buy Vanellope's Kart (✨${vanellopeKartPrice})`;
+  buyGeniesLampButton.textContent = `Buy Genie's Lamp (✨${geniesLampPrice})`;
+  buyLightningMcQueenButton.textContent = `Buy Lightning McQueen (✨${lightningMcQueenPrice})`;
+  buyElsasCastleButton.textContent = `Buy Elsa's Castle (✨${elsasCastlePrice})`;
+  buyMauisFishHookButton.textContent = `Buy Maui's Fish Hook (✨${mauisFishHookPrice})`;
 
   // Enable/disable the buttons based on available Pixie Dust
   buyMickeyHatButton.disabled = dustCount < mickeyHatPrice;
