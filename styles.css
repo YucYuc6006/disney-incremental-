@@ -9,12 +9,14 @@ body {
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Vertically centers the content */
+  justify-content: flex-start; /* Align the content to the top */
   align-items: center; /* Horizontally centers the content */
   min-height: 100vh; /* Ensures the body takes up the full height of the viewport */
-  overflow: hidden; /* Prevents any scrollbars from appearing */
+  overflow-y: auto; /* Allow vertical scrolling */
+  box-sizing: border-box; /* Ensures padding doesn't affect overall dimensions */
 }
 
+/* Title and headers */
 h1, h2 {
   font-family: 'Fredoka One', cursive;
 }
@@ -80,6 +82,7 @@ button[data-tooltip]:hover::after {
   margin-top: 20px;
 }
 
+/* Inventory container */
 #inventory {
   margin-top: 30px;
   display: none; /* Initially hidden */
@@ -93,6 +96,7 @@ button[data-tooltip]:hover::after {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
+/* Footer */
 footer {
   position: absolute;
   bottom: 10px;
