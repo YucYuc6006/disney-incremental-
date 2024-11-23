@@ -31,6 +31,14 @@
     <button id="buy-maui-hook" disabled>Buy Maui's Fish Hook (1,000 Pixie Dust)</button>
   </div>
 
+  <!-- Inventory Section -->
+  <div id="inventory">
+    <h2>Inventory</h2>
+    <ul id="inventory-list">
+      <!-- Purchased upgrades will be listed here -->
+    </ul>
+  </div>
+
   <footer>✨ Made with Disney magic ✨</footer>
 
   <script>
@@ -40,12 +48,12 @@
 
     // Upgrade Costs and Status
     const upgrades = {
-      mickeyHat: { cost: 10, purchased: false },
-      vanellopeKart: { cost: 50, purchased: false },
-      elsaCastle: { cost: 200, purchased: false },
-      genieLamp: { cost: 500, purchased: false },
-      lightningBoost: { cost: 750, purchased: false },
-      mauiHook: { cost: 1000, purchased: false }
+      mickeyHat: { cost: 10, purchased: false, name: "Mickey's Sorcerer Hat" },
+      vanellopeKart: { cost: 50, purchased: false, name: "Vanellope's Candy Kart" },
+      elsaCastle: { cost: 200, purchased: false, name: "Elsa's Ice Castle" },
+      genieLamp: { cost: 500, purchased: false, name: "Genie's Lamp" },
+      lightningBoost: { cost: 750, purchased: false, name: "Lightning McQueen's Nitro Boost" },
+      mauiHook: { cost: 1000, purchased: false, name: "Maui's Fish Hook" }
     };
 
     // DOM Elements
@@ -58,6 +66,7 @@
     const buyGenieLampButton = document.getElementById("buy-genie-lamp");
     const buyLightningBoostButton = document.getElementById("buy-lightning-boost");
     const buyMauiHookButton = document.getElementById("buy-maui-hook");
+    const inventoryList = document.getElementById("inventory-list");
 
     // Collect Pixie Dust
     collectButton.addEventListener("click", () => {
@@ -65,76 +74,73 @@
       updateUI();
     });
 
-    // Mickey's Sorcerer Hat
-    buyMickeyHatButton.addEventListener("click", () => {
-      if (dustCount >= upgrades.mickeyHat.cost && !upgrades.mickeyHat.purchased) {
-        dustCount -= upgrades.mickeyHat.cost;
-        dustPerSecond += 1;
-        upgrades.mickeyHat.purchased = true;
+    // Purchase Function
+    function purchaseUpgrade(upgradeKey, buttonElement, effect) {
+      const upgrade = upgrades[upgradeKey];
+      if (dustCount >= upgrade.cost && !upgrade.purchased) {
+        dustCount -= upgrade.cost;
+        upgrade.purchased = true;
+        buttonElement.textContent = "Purchased";
+        buttonElement.disabled = true;
+
+        // Apply the upgrade effect
+        effect();
+
+        // Add to inventory
+        addToInventory(upgrade.name);
+
         updateUI();
       }
-    });
+    }
 
-    // Vanellope's Candy Kart
-    buyVanellopeKartButton.addEventListener("click", () => {
-      if (dustCount >= upgrades.vanellopeKart.cost && !upgrades.vanellopeKart.purchased) {
-        dustCount -= upgrades.vanellopeKart.cost;
-        upgrades.vanellopeKart.purchased = true;
-        collectButton.addEventListener("click", () => dustCount += 1); // Adds +1 per click
-        updateUI();
-      }
-    });
+    // Add Upgrade to Inventory
+    function addToInventory(upgradeName) {
+      const listItem = document.createElement("li");
+      listItem.textContent = upgradeName;
+      inventoryList.appendChild(listItem);
+    }
 
-    // Elsa's Ice Castle
-    buyElsaCastleButton.addEventListener("click", () => {
-      if (dustCount >= upgrades.elsaCastle.cost && !upgrades.elsaCastle.purchased) {
-        dustCount -= upgrades.elsaCastle.cost;
-        upgrades.elsaCastle.purchased = true;
-        dustPerSecond *= 1.5; // Multiply production by 1.5
-        updateUI();
-      }
-    });
+    // Upgrades
+    buyMickeyHatButton.addEventListener("click", () =>
+      purchaseUpgrade("mickeyHat", buyMickeyHatButton, () => (dustPerSecond += 1))
+    );
 
-    // Genie's Lamp
-    buyGenieLampButton.addEventListener("click", () => {
-      if (dustCount >= upgrades.genieLamp.cost && !upgrades.genieLamp.purchased) {
-        dustCount -= upgrades.genieLamp.cost;
-        upgrades.genieLamp.purchased = true;
+    buyVanellopeKartButton.addEventListener("click", () =>
+      purchaseUpgrade("vanellopeKart", buyVanellopeKartButton, () =>
+        collectButton.addEventListener("click", () => (dustCount += 1))
+      )
+    );
+
+    buyElsaCastleButton.addEventListener("click", () =>
+      purchaseUpgrade("elsaCastle", buyElsaCastleButton, () => (dustPerSecond *= 1.5))
+    );
+
+    buyGenieLampButton.addEventListener("click", () =>
+      purchaseUpgrade("genieLamp", buyGenieLampButton, () => {
         setInterval(() => {
           const randomBonus = Math.floor(Math.random() * 100) + 50; // Random bonus between 50-150
           dustCount += randomBonus;
           alert(`Genie granted you ${randomBonus} Pixie Dust!`);
           updateUI();
         }, 30000); // Grants bonus every 30 seconds
-        updateUI();
-      }
-    });
+      })
+    );
 
-    // Lightning McQueen's Nitro Boost
-    buyLightningBoostButton.addEventListener("click", () => {
-      if (dustCount >= upgrades.lightningBoost.cost && !upgrades.lightningBoost.purchased) {
-        dustCount -= upgrades.lightningBoost.cost;
-        upgrades.lightningBoost.purchased = true;
+    buyLightningBoostButton.addEventListener("click", () =>
+      purchaseUpgrade("lightningBoost", buyLightningBoostButton, () => {
         setInterval(() => {
           let boostActive = true;
           collectButton.addEventListener("click", () => {
             if (boostActive) dustCount += 4; // Adds +5 total per click
           });
-          setTimeout(() => boostActive = false, 10000); // Lasts 10 seconds
+          setTimeout(() => (boostActive = false), 10000); // Lasts 10 seconds
         }, 60000); // Activates every 60 seconds
-        updateUI();
-      }
-    });
+      })
+    );
 
-    // Maui's Fish Hook
-    buyMauiHookButton.addEventListener("click", () => {
-      if (dustCount >= upgrades.mauiHook.cost && !upgrades.mauiHook.purchased) {
-        dustCount -= upgrades.mauiHook.cost;
-        upgrades.mauiHook.purchased = true;
-        dustPerSecond += 5; // Adds passive generation
-        updateUI();
-      }
-    });
+    buyMauiHookButton.addEventListener("click", () =>
+      purchaseUpgrade("mauiHook", buyMauiHookButton, () => (dustPerSecond += 5))
+    );
 
     // Update UI
     function updateUI() {
