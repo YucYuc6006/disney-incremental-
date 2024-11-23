@@ -1,22 +1,25 @@
-/* General Styles */
+/* Ensure everything in body is centered */
 body {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
-  background: url('https://i.imgur.com/Ll2bNGF.jpeg') no-repeat center center fixed; /* Center and fix the background */
-  background-size: cover; /* Ensure it covers the entire screen */
-  color: #ffffff; /* White text for good contrast */
+  background: url('https://i.imgur.com/Ll2bNGF.jpeg') no-repeat center center fixed; /* Using your Imgur background */
+  background-size: cover; /* Ensures the image covers the entire viewport */
+  color: #ffffff; /* White text for contrast */
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Vertically centers content */
-  align-items: center; /* Horizontally centers content */
-  min-height: 100vh; /* Ensures the body takes up the entire viewport height */
+  justify-content: center; /* Vertically centers the content */
+  align-items: center; /* Horizontally centers the content */
+  min-height: 100vh; /* Ensures the body takes up the full height of the viewport */
+  overflow: hidden; /* Prevents any scrollbars from appearing */
 }
 
-/* Title Styles */
-h1 {
+h1, h2 {
   font-family: 'Fredoka One', cursive;
+}
+
+h1 {
   font-size: 3rem;
   margin-bottom: 0.5rem;
 }
@@ -26,19 +29,9 @@ h2 {
   margin-bottom: 1rem;
 }
 
-/* Pixie Dust Counter Styles */
-div {
-  margin: 10px 0;
-}
-
-p {
-  font-size: 1.2rem;
-}
-
-/* Button Styles */
 button {
-  background-color: #4a90e2; /* Disney-like blue */
-  color: #ffffff;
+  background-color: #4a90e2;
+  color: white;
   font-size: 1.1rem;
   font-weight: bold;
   border: none;
@@ -50,46 +43,23 @@ button {
 }
 
 button:hover {
-  transform: scale(1.1); /* Slight zoom on hover */
+  transform: scale(1.1);
   background-color: #2c78c9;
 }
 
 button:disabled {
-  background-color: #888; /* Grayed-out buttons when disabled */
+  background-color: #888;
   cursor: not-allowed;
 }
 
-/* Upgrades Section */
 #upgrades {
   margin-top: 20px;
 }
 
-#upgrades h2 {
-  margin-bottom: 10px;
-  font-size: 1.8rem;
-}
-
-/* Inventory Section */
 #inventory {
   margin-top: 30px;
 }
 
-#inventory h2 {
-  font-size: 1.8rem;
-  margin-bottom: 10px;
-}
-
-#inventory ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-#inventory li {
-  font-size: 1.2rem;
-  margin: 5px 0;
-}
-
-/* Footer Styles */
 footer {
   position: absolute;
   bottom: 10px;
