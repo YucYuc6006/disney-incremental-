@@ -3,23 +3,20 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
-  background: url('https://i.imgur.com/Ll2bNGF.jpeg') no-repeat center center fixed; /* Background image */
-  background-size: cover; /* Ensures the image covers the entire viewport */
-  color: #11acac; /* Text color */
-  text-shadow: 2px 2px 4px #000000, -2px -2px 4px #000000, 2px -2px 4px #000000, -2px 2px 4px #000000; /* Black border effect */
+  background: url('https://i.imgur.com/Ll2bNGF.jpeg') no-repeat center center fixed;
+  background-size: cover;
+  color: #11acac;
+  text-shadow: 2px 2px 4px #000000, -2px -2px 4px #000000;
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Align the content to the top */
-  align-items: center; /* Horizontally centers the content */
-  min-height: 100vh; /* Ensures the body takes up the full height of the viewport */
-  overflow-y: scroll; /* Forces vertical scrolling to always be available */
-  box-sizing: border-box; /* Ensures padding doesn't affect overall dimensions */
-  padding-right: 12px; /* Prevents content from being hidden behind the scrollbar */
-  padding-bottom: 50px; /* Adjusts for footer space */
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
-/* Title and headers */
+/* Title styles */
 h1, h2 {
   font-family: 'Fredoka One', cursive;
 }
@@ -27,6 +24,8 @@ h1, h2 {
 h1 {
   font-size: 3rem;
   margin-bottom: 0.5rem;
+  color: #11acac;
+  text-shadow: 2px 2px 4px #000000;
 }
 
 h2 {
@@ -34,6 +33,16 @@ h2 {
   margin-bottom: 1rem;
 }
 
+/* Dust info section */
+#dust-info {
+  margin-bottom: 20px;
+}
+
+button#collect-button {
+  margin-top: 10px;
+}
+
+/* Button styling */
 button {
   position: relative;
   background-color: #4a90e2;
@@ -46,7 +55,6 @@ button {
   border-radius: 25px;
   cursor: pointer;
   transition: transform 0.2s, background-color 0.3s;
-  display: inline-block;
 }
 
 button:hover {
@@ -59,75 +67,65 @@ button:disabled {
   cursor: not-allowed;
 }
 
-/* Tooltip styles */
-button[data-tooltip] {
-  position: relative;
-  z-index: 10; /* Ensure tooltips stay above other elements */
+/* Tooltip styling */
+.upgrade-button:hover span.tooltip {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(10px); /* Slight offset below the button */
 }
 
-button[data-tooltip]:hover::after {
-  content: attr(data-tooltip); /* Show the tooltip text stored in the data-tooltip attribute */
+span.tooltip {
+  visibility: hidden;
   position: absolute;
-  top: -150%; /* Place the tooltip above the button */
+  top: 120%; /* Correct position below the button */
   left: 50%;
   transform: translateX(-50%);
-  background-color: rgba(0, 0, 0, 0.75); /* Dark background for the tooltip */
+  background-color: rgba(0, 0, 0, 0.75);
   color: #ffffff;
   padding: 5px 10px;
   border-radius: 5px;
-  white-space: nowrap;
   font-size: 0.9rem;
-  z-index: 1000; /* Ensure tooltips appear above all other elements */
+  white-space: nowrap;
   opacity: 0;
-  transition: opacity 0.2s;
+  transition: opacity 0.2s, transform 0.2s;
 }
 
-button[data-tooltip]:hover::after {
-  opacity: 1; /* Show tooltip on hover */
-}
-
-/* Upgrade container */
-#upgrades {
-  margin-top: 20px;
-  display: flex;
-  flex-wrap: wrap; /* Allows buttons to wrap to the next line if needed */
-  justify-content: center; /* Center upgrades horizontally */
-  position: relative; /* Tooltip compatibility */
-  z-index: 1; /* Below tooltips */
-}
-
-#dust-info {
-  margin-bottom: 20px; /* Space below the dust info section */
-}
-
-button#collect-button {
-  margin-top: 10px; /* Adds space above the collect button */
-}
-
-/* Inventory container - centered on screen */
+/* Inventory container */
 #inventory {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-height: 400px; /* Limit the height of the inventory */
-  overflow-y: scroll; /* Enable scrolling for long inventory */
-  width: 90%; /* Make it responsive on smaller screens */
-  max-width: 600px; /* Prevent it from getting too wide */
-  background-color: rgba(0, 0, 0, 0.6); /* Background color for the inventory */
-  padding: 15px;
+  display: none; /* Initially hidden */
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+  width: 90%;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
   border-radius: 10px;
+  text-align: left; /* Align text to the left for clarity */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-  z-index: 5; /* Stays above upgrades but below tooltips */
-  visibility: hidden; /* Initially hidden */
 }
 
-#inventory.show {
-  visibility: visible; /* Show inventory when "show" class is added */
+#inventory ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#inventory li {
+  margin-bottom: 10px;
+}
+
+/* Inventory toggle button */
+#inventory-toggle {
+  background-color: #6A0DAD;
+  color: black;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  z-index: 100;
+}
+
+#inventory-toggle:hover {
+  background-color: #582AAE;
 }
 
 /* Footer */
@@ -140,25 +138,7 @@ footer {
   color: #ffffff;
 }
 
-/* Position the inventory toggle button */
-#inventory-toggle {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  background-color: #6A0DAD;
-  color: black;
-  padding: 10px 20px;
-  font-size: 1rem;
-  border-radius: 25px;
-  cursor: pointer;
-  z-index: 100;
-}
-
-#inventory-toggle:hover {
-  background-color: #5a0ca0;
-}
-
-/* Custom Scrollbar */
+/* Scrollbar styles */
 body::-webkit-scrollbar {
   width: 12px;
 }
