@@ -50,6 +50,7 @@ button {
   border-radius: 25px;
   cursor: pointer;
   transition: transform 0.2s, background-color 0.3s;
+  display: inline-block; /* Ensures the buttons stay inline */
 }
 
 button:hover {
@@ -113,8 +114,8 @@ button[data-tooltip].top:hover::after {
 #inventory {
   margin-top: 30px;
   display: none; /* Initially hidden */
-  max-height: 300px; /* Set a maximum height for the inventory section */
-  overflow-y: auto; /* Enables scrolling if the content overflows vertically */
+  max-height: 400px; /* Set a maximum height for the inventory section */
+  overflow-y: scroll; /* Enables scrolling if the content overflows vertically */
   width: 90%; /* Make it responsive on smaller screens */
   max-width: 600px; /* Prevent it from getting too wide */
   background-color: rgba(0, 0, 0, 0.6); /* Background for the inventory section */
@@ -168,4 +169,9 @@ body::-webkit-scrollbar-thumb:hover {
 body::-webkit-scrollbar-track {
   background-color: rgba(0, 0, 0, 0.1); /* Track color of the scrollbar */
   border-radius: 10px;
+}
+
+/* Add space at the bottom to prevent content from being hidden behind the fixed footer */
+body {
+  padding-bottom: 50px; /* Adjust this value based on your footer size */
 }
