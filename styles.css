@@ -77,7 +77,7 @@ button[data-tooltip]:hover::after {
   border-radius: 5px;
   white-space: nowrap;
   font-size: 0.9rem;
-  z-index: 10;
+  z-index: 1000; /* Ensures tooltips are above all other elements */
   opacity: 0; /* Make tooltip initially invisible */
   transition: opacity 0.2s;
 }
@@ -118,12 +118,18 @@ button#collect-button {
 /* Upgrade container */
 #upgrades {
   margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap; /* Allows buttons to wrap if there are many upgrades */
+  justify-content: center;
 }
 
 /* Inventory container */
 #inventory {
+  display: flex; /* Flexbox for centering */
+  flex-direction: column; /* Align inventory content vertically */
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
   margin-top: 30px;
-  display: none; /* Initially hidden */
   max-height: 400px; /* Set a maximum height for the inventory section */
   overflow-y: scroll; /* Enables scrolling if the content overflows vertically */
   width: 90%; /* Make it responsive on smaller screens */
@@ -132,6 +138,7 @@ button#collect-button {
   padding: 15px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  z-index: 5; /* Ensures inventory stays above other elements but below tooltips */
 }
 
 /* Footer */
