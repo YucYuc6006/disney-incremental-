@@ -14,6 +14,9 @@
   <p>Pixie Dust Per Second: <span id="dust-per-second">0</span></p>
   <button id="collect-button">Collect Pixie Dust</button>
 
+  <!-- Inventory Toggle Button -->
+  <button id="inventory-toggle">Show Inventory</button>
+
   <div id="upgrades">
     <h3>Upgrades</h3>
     <button id="buy-mickeys-hat" data-tooltip="Buy Mickey's Sorcerer Hat. Adds 1 Pixie Dust per second.">Buy Mickey's Sorcerer Hat (10 Pixie Dust)</button>
@@ -24,7 +27,8 @@
     <button id="buy-mauis-fish-hook" data-tooltip="Buy Maui's Fish Hook. Doubles your Pixie Dust earned per second.">Buy Maui's Fish Hook (1,000 Pixie Dust)</button>
   </div>
 
-  <div id="inventory">
+  <!-- Hidden Inventory Section -->
+  <div id="inventory" style="display: none;">
     <h3>Inventory</h3>
     <ul>
       <li>Mickey's Sorcerer Hat: <span id="mickey-hat-count">0</span></li>
