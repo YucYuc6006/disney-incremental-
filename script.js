@@ -22,6 +22,10 @@ const buyLightningMcQueenButton = document.getElementById("buy-lightning-mcqueen
 const buyElsasCastleButton = document.getElementById("buy-elsas-castle");
 const buyMauisFishHookButton = document.getElementById("buy-mauis-fish-hook");
 
+// Inventory Toggle Button
+const inventoryToggleButton = document.getElementById("inventory-toggle");
+const inventorySection = document.getElementById("inventory");
+
 // Collect Pixie Dust
 collectButton.addEventListener("click", () => {
   dustCount++;
@@ -81,6 +85,13 @@ buyMauisFishHookButton.addEventListener("click", () => {
     dustPerSecond *= 2;
     updateUI();
   }
+});
+
+// Toggle Inventory Visibility
+inventoryToggleButton.addEventListener("click", () => {
+  const isVisible = inventorySection.style.display === "block";
+  inventorySection.style.display = isVisible ? "none" : "block";
+  inventoryToggleButton.textContent = isVisible ? "Show Inventory" : "Hide Inventory";
 });
 
 // Update UI
