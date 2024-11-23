@@ -6,6 +6,7 @@ body {
   background: url('https://i.imgur.com/Ll2bNGF.jpeg') no-repeat center center fixed; /* Background image */
   background-size: cover; /* Ensures the image covers the entire viewport */
   color: #11acac; /* White text for contrast */
+  text-shadow: 2px 2px 4px #000000, -2px -2px 4px #000000, 2px -2px 4px #000000, -2px 2px 4px #000000; /* Black border effect */
   text-align: center;
   display: flex;
   flex-direction: column;
