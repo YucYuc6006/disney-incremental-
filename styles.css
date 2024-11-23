@@ -82,6 +82,15 @@ button[data-tooltip]:hover::after {
 
 #inventory {
   margin-top: 30px;
+  display: none; /* Initially hidden */
+  max-height: 300px; /* Set a maximum height for the inventory section */
+  overflow-y: auto; /* Enables scrolling if the content overflows vertically */
+  width: 90%; /* Make it responsive on smaller screens */
+  max-width: 600px; /* Prevent it from getting too wide */
+  background-color: rgba(0, 0, 0, 0.6); /* Background for the inventory section */
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 footer {
@@ -91,4 +100,22 @@ footer {
   text-align: center;
   font-size: 0.9rem;
   color: #ffffff;
+}
+
+/* Position the inventory toggle button */
+#inventory-toggle {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: #ff8c00;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  z-index: 100;
+}
+
+#inventory-toggle:hover {
+  background-color: #e07b00;
 }
