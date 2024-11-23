@@ -109,6 +109,13 @@ button[data-tooltip].top:hover::after {
 #upgrades {
   margin-top: 20px;
 }
+#dust-info {
+  margin-bottom: 20px; /* Space below the dust info section */
+}
+
+button#collect-button {
+  margin-top: 10px; /* Adds space above the collect button */
+}
 
 /* Inventory container */
 #inventory {
@@ -174,11 +181,4 @@ body::-webkit-scrollbar-track {
 /* Add space at the bottom to prevent content from being hidden behind the fixed footer */
 body {
   padding-bottom: 50px; /* Adjust this value based on your footer size */
-}
-#dust-info {
-  margin-bottom: 20px; /* Adds space below the dust info section */
-}
-
-#collect-button {
-  margin-top: 10px; /* Adds space above the collect button */
 }
