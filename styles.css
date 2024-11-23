@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
-  background: url('https://i.imgur.com/Ll2bNGF.jpeg') no-repeat center center fixed; /* Using your Imgur background */
+  background: url('https://i.imgur.com/Ll2bNGF.jpeg') no-repeat center center fixed; /* Background image */
   background-size: cover; /* Ensures the image covers the entire viewport */
   color: #ffffff; /* White text for contrast */
   text-align: center;
@@ -12,8 +12,9 @@ body {
   justify-content: flex-start; /* Align the content to the top */
   align-items: center; /* Horizontally centers the content */
   min-height: 100vh; /* Ensures the body takes up the full height of the viewport */
-  overflow-y: scroll; /* Enables scroll when content exceeds the viewport */
+  overflow-y: scroll; /* Forces vertical scrolling to always be available */
   box-sizing: border-box; /* Ensures padding doesn't affect overall dimensions */
+  padding-right: 12px; /* Prevents content from being hidden behind the scrollbar */
 }
 
 /* Title and headers */
