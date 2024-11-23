@@ -70,8 +70,8 @@ buyLightningMcQueenButton.addEventListener("click", () => {
 });
 
 buyElsasCastleButton.addEventListener("click", () => {
-  if (dustCount >= 200) {
-    dustCount -= 200;
+  if (dustCount >= 1000) {
+    dustCount -= 1000;
     inventory.elsasCastle++;
     dustPerSecond += 10;
     updateUI();
@@ -79,8 +79,8 @@ buyElsasCastleButton.addEventListener("click", () => {
 });
 
 buyMauisFishHookButton.addEventListener("click", () => {
-  if (dustCount >= 1000) {
-    dustCount -= 1000;
+  if (dustCount >= 2000) {
+    dustCount -= 2000;
     inventory.mauisFishHook++;
     dustPerSecond *= 2;
     updateUI();
