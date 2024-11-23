@@ -23,8 +23,13 @@ h1, h2 {
 }
 
 h1 {
+  font-family: 'Fredoka One', cursive;
   font-size: 3rem;
   margin-bottom: 0.5rem;
+  color: #11acac; /* White text for contrast */
+  padding: 10px; /* Padding to give space between text and border */
+  border: 3px solid black; /* Black border around the text */
+  display: inline-block; /* Keeps the border only around the text */
 }
 
 h2 {
