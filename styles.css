@@ -1,9 +1,9 @@
-/* Ensure everything in body is centered */
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif;
-  background: url('https://i.imgur.com/Ll2bNGF.jpeg') no-repeat center center fixed;
+  font-family: "Poppins", sans-serif;
+  background: url("https://i.imgur.com/Ll2bNGF.jpeg") no-repeat center center
+    fixed;
   background-size: cover;
   color: #11acac;
   text-shadow: 2px 2px 4px #000000, -2px -2px 4px #000000;
@@ -16,9 +16,9 @@ body {
   box-sizing: border-box;
 }
 
-/* Title styles */
-h1, h2 {
-  font-family: 'Fredoka One', cursive;
+h1,
+h2 {
+  font-family: "Fredoka One", cursive;
 }
 
 h1 {
@@ -33,7 +33,6 @@ h2 {
   margin-bottom: 1rem;
 }
 
-/* Dust info section */
 #dust-info {
   margin-bottom: 20px;
 }
@@ -42,7 +41,6 @@ button#collect-button {
   margin-top: 10px;
 }
 
-/* Button styling */
 button {
   position: relative;
   background-color: #4a90e2;
@@ -68,11 +66,10 @@ button:disabled {
   cursor: not-allowed;
 }
 
-/* Tooltip styling */
 span.tooltip {
   visibility: hidden;
   position: absolute;
-  top: calc(100% + 10px); /* Correct positioning below the button */
+  top: calc(100% + 10px);
   left: 50%;
   transform: translateX(-50%);
   background-color: rgba(0, 0, 0, 0.85);
@@ -83,7 +80,7 @@ span.tooltip {
   white-space: nowrap;
   opacity: 0;
   transition: opacity 0.2s, transform 0.2s;
-  z-index: 10; /* Ensure it appears above other elements */
+  z-index: 10;
 }
 
 .upgrade-button:hover span.tooltip {
@@ -92,9 +89,8 @@ span.tooltip {
   transform: translate(-50%, 0);
 }
 
-/* Inventory container */
 #inventory {
-  display: none; /* Initially hidden */
+  display: none;
   background-color: rgba(0, 0, 0, 0.8);
   color: #ffffff;
   width: 90%;
@@ -102,7 +98,7 @@ span.tooltip {
   margin: 20px auto;
   padding: 20px;
   border-radius: 10px;
-  text-align: left; /* Align text to the left for clarity */
+  text-align: left;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
@@ -121,27 +117,16 @@ span.tooltip {
   left: 10px;
   z-index: 1000;
   padding: 10px 20px;
-  background-color: #582AAE;
+  background-color: #582aae;
   color: black;
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
 #inventory-toggle:hover {
-  background-color: #582AAE;
+  background-color: #582aae;
 }
 
-/* Footer */
-footer {
-  position: absolute;
-  bottom: 10px;
-  width: 100%;
-  text-align: center;
-  font-size: 0.9rem;
-  color: #ffffff;
-}
-
-/* Scrollbar styles */
 body::-webkit-scrollbar {
   width: 12px;
 }

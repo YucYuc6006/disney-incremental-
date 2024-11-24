@@ -1,63 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Disney Incremental</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <div id="game-container">
-        <h1 class="title">Disney Incremental</h1>
+      <h1 class="title">Disney Incremental</h1>
 
-        <div id="dust-info">
-            <p>Pixie Dust: <span id="dust-count">0</span> ✨</p>
-            <button id="collect-button">Collect Pixie Dust</button>
-            <p>Dust Per Second: <span id="dust-per-second">0</span></p>
-        </div>
+      <div id="dust-info">
+        <p>Pixie Dust: <span id="dust-count">0</span> ✨</p>
+        <button id="collect-button">Collect Pixie Dust</button>
+        <p>Dust Per Second: <span id="dust-per-second">0</span></p>
+      </div>
 
-        <div id="upgrades">
-            <button class="upgrade-button" id="buy-mickeys-hat" data-upgrade="Mickey's Sorcerers Hat">
-                Buy Mickey's Sorcerers Hat (✨10)
-                <span class="tooltip">Mickey's Sorcerers Hat adds 1 to your dust per second!</span>
-            </button>
-            <button class="upgrade-button" id="buy-vanellopes-kart" data-upgrade="Vanellope's Kart">
-                Buy Vanellope's Kart (✨50)
-                <span class="tooltip">Vanellope's Kart adds 2 dust per second!</span>
-            </button>
-            <button class="upgrade-button" id="buy-genies-lamp" data-upgrade="Genie's Lamp">
-                Buy Genie's Lamp (✨500)
-                <span class="tooltip">Genie's Lamp adds 5 dust per second!</span>
-            </button>
-            <button class="upgrade-button" id="buy-lightning-mcqueen" data-upgrade="Lightning McQueen">
-                Buy Lightning McQueen (✨750)
-                <span class="tooltip">Lightning McQueen doubles your dust per second!</span>
-            </button>
-            <button class="upgrade-button" id="buy-elsas-castle" data-upgrade="Elsa's Castle">
-                Buy Elsa's Castle (✨1000)
-                <span class="tooltip">Elsa's Castle adds 10 dust per second!</span>
-            </button>
-            <button class="upgrade-button" id="buy-mauis-fish-hook" data-upgrade="Maui's Fish Hook">
-                Buy Maui's Fish Hook (✨2000)
-                <span class="tooltip">Maui's Fish Hook doubles your dust per second!</span>
-            </button>
-        </div>
+      <div id="upgrades">
+        <button
+          class="upgrade-button"
+          id="buy-mickeys-hat"
+          data-upgrade="Mickey's Sorcerers Hat"
+        >
+          Buy Mickey's Sorcerers Hat (✨10)
+          <span class="tooltip"
+            >Mickey's Sorcerers Hat adds 1 to your dust per second!</span
+          >
+        </button>
+        <button
+          class="upgrade-button"
+          id="buy-vanellopes-kart"
+          data-upgrade="Vanellope's Kart"
+        >
+          Buy Vanellope's Kart (✨50)
+          <span class="tooltip">Vanellope's Kart adds 2 dust per second!</span>
+        </button>
+        <button
+          class="upgrade-button"
+          id="buy-genies-lamp"
+          data-upgrade="Genie's Lamp"
+        >
+          Buy Genie's Lamp (✨500)
+          <span class="tooltip">Genie's Lamp adds 5 dust per second!</span>
+        </button>
+        <button
+          class="upgrade-button"
+          id="buy-lightning-mcqueen"
+          data-upgrade="Lightning McQueen"
+        >
+          Buy Lightning McQueen (✨750)
+          <span class="tooltip"
+            >Lightning McQueen doubles your dust per second!</span
+          >
+        </button>
+        <button
+          class="upgrade-button"
+          id="buy-elsas-castle"
+          data-upgrade="Elsa's Castle"
+        >
+          Buy Elsa's Castle (✨1000)
+          <span class="tooltip">Elsa's Castle adds 10 dust per second!</span>
+        </button>
+        <button
+          class="upgrade-button"
+          id="buy-mauis-fish-hook"
+          data-upgrade="Maui's Fish Hook"
+        >
+          Buy Maui's Fish Hook (✨2000)
+          <span class="tooltip"
+            >Maui's Fish Hook doubles your dust per second!</span
+          >
+        </button>
+      </div>
 
-        <button id="inventory-toggle">Show Inventory</button>
+      <button id="inventory-toggle">Show Inventory</button>
 
-        <div id="inventory" style="display:none;">
-            <h2>Inventory</h2>
-            <ul>
-                <li>Mickey's Sorcerers Hat: <span id="mickeys-hat-count">0</span></li>
-                <li>Vanellope's Kart: <span id="vanellopes-kart-count">0</span></li>
-                <li>Genie's Lamp: <span id="genies-lamp-count">0</span></li>
-                <li>Lightning McQueen: <span id="lightning-mcqueen-count">0</span></li>
-                <li>Elsa's Castle: <span id="elsas-castle-count">0</span></li>
-                <li>Maui's Fish Hook: <span id="mauis-fish-hook-count">0</span></li>
-            </ul>            
-        </div>
+      <div id="inventory" style="display: none">
+        <h2>Inventory</h2>
+        <ul>
+          <li>Mickey's Sorcerers Hat: <span id="mickeys-hat-count">0</span></li>
+          <li>Vanellope's Kart: <span id="vanellopes-kart-count">0</span></li>
+          <li>Genie's Lamp: <span id="genies-lamp-count">0</span></li>
+          <li>
+            Lightning McQueen: <span id="lightning-mcqueen-count">0</span>
+          </li>
+          <li>Elsa's Castle: <span id="elsas-castle-count">0</span></li>
+          <li>Maui's Fish Hook: <span id="mauis-fish-hook-count">0</span></li>
+        </ul>
+      </div>
     </div>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
