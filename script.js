@@ -2,7 +2,7 @@
 let pixieDust = 0;
 let dustPerSecond = 0;
 let inventory = {
-  "Mickey's Hat": 0,
+  "Mickey's Sorcerers Hat": 0,
   "Vanellope's Kart": 0,
   "Genie's Lamp": 0,
   "Lightning McQueen": 0,
@@ -12,7 +12,7 @@ let inventory = {
 
 // Upgrade prices
 let upgradePrices = {
-  "Mickey's Hat": 10,
+  "Mickey's Sorcerers Hat": 10,
   "Vanellope's Kart": 50,
   "Genie's Lamp": 500,
   "Lightning McQueen": 750,
@@ -57,7 +57,7 @@ document.querySelectorAll('.upgrade-button').forEach(button => {
 // Calculate additional Dust Per Second (DPS) for each upgrade
 function calculateDustPerSecond(upgradeName) {
   switch (upgradeName) {
-    case "Mickey's Hat":
+    case "Mickey's Sorcerers Hat":
       return 1;
     case "Vanellope's Kart":
       return 2;
@@ -81,7 +81,7 @@ function updateUI() {
   document.getElementById('dust-per-second').textContent = dustPerSecond;
 
   // Update inventory counts
-  document.getElementById('mickeys-hat-count').textContent = inventory["Mickey's Hat"];
+  document.getElementById('mickeys-hat-count').textContent = inventory["Mickey's Sorcerers Hat"];
   document.getElementById('vanellopes-kart-count').textContent = inventory["Vanellope's Kart"];
   document.getElementById('genies-lamp-count').textContent = inventory["Genie's Lamp"];
   document.getElementById('lightning-mcqueen-count').textContent = inventory["Lightning McQueen"];
