@@ -1,4 +1,3 @@
-// Game state variables
 let pixieDust = 0;
 let dustPerSecond = 0;
 let inventory = {
@@ -10,7 +9,6 @@ let inventory = {
   "Maui's Fish Hook": 0
 };
 
-// Upgrade prices
 let upgradePrices = {
   "Mickey's Sorcerers Hat": 10,
   "Vanellope's Kart": 50,
@@ -20,13 +18,11 @@ let upgradePrices = {
   "Maui's Fish Hook": 2000
 };
 
-// Collect Pixie Dust
 document.getElementById('collect-button').addEventListener('click', () => {
   pixieDust++;
   updateUI();
 });
 
-// Handle inventory toggle
 document.getElementById('inventory-toggle').addEventListener('click', () => {
   const inventoryDiv = document.getElementById('inventory');
   inventoryDiv.style.display = inventoryDiv.style.display === 'none' ? 'block' : 'none';
@@ -34,7 +30,6 @@ document.getElementById('inventory-toggle').addEventListener('click', () => {
     inventoryDiv.style.display === 'none' ? 'Show Inventory' : 'Hide Inventory';
 });
 
-// Handle upgrade purchases
 document.querySelectorAll('.upgrade-button').forEach(button => {
   button.addEventListener('click', () => {
     const upgradeName = button.getAttribute('data-upgrade');
@@ -44,9 +39,7 @@ document.querySelectorAll('.upgrade-button').forEach(button => {
       pixieDust -= price;
       dustPerSecond += calculateDustPerSecond(upgradeName);
       inventory[upgradeName]++;
-      upgradePrices[upgradeName] = Math.floor(price * 1.5); // Increase price by 1.5x
-
-      // Update button text with new price
+      upgradePrices[upgradeName] = Math.floor(price * 1.5); 
       button.textContent = `Buy ${upgradeName} (✨${upgradePrices[upgradeName]})`;
 
       updateUI();
@@ -54,7 +47,6 @@ document.querySelectorAll('.upgrade-button').forEach(button => {
   });
 });
 
-// Calculate additional Dust Per Second (DPS) for each upgrade
 function calculateDustPerSecond(upgradeName) {
   switch (upgradeName) {
     case "Mickey's Sorcerers Hat":
@@ -64,23 +56,19 @@ function calculateDustPerSecond(upgradeName) {
     case "Genie's Lamp":
       return 5;
     case "Lightning McQueen":
-      return dustPerSecond; // Doubles the current dust per second
+      return dustPerSecond;
     case "Elsa's Castle":
       return 10;
     case "Maui's Fish Hook":
-      return dustPerSecond; // Doubles the current dust per second
+      return dustPerSecond; 
     default:
       return 0;
   }
 }
 
-// Update the UI (Pixie Dust, DPS, Inventory)
 function updateUI() {
-  // Update Pixie Dust and Dust Per Second display
   document.getElementById('dust-count').textContent = pixieDust;
   document.getElementById('dust-per-second').textContent = dustPerSecond;
-
-  // Update inventory counts
   document.getElementById('mickeys-hat-count').textContent = inventory["Mickey's Sorcerers Hat"];
   document.getElementById('vanellopes-kart-count').textContent = inventory["Vanellope's Kart"];
   document.getElementById('genies-lamp-count').textContent = inventory["Genie's Lamp"];
@@ -89,14 +77,11 @@ function updateUI() {
   document.getElementById('mauis-fish-hook-count').textContent = inventory["Maui's Fish Hook"];
 }
 
-// Automatically collect Pixie Dust per second
 setInterval(() => {
   pixieDust += dustPerSecond;
   updateUI();
 }, 1000);
 
-
-// Adjust tooltips' positions dynamically
 function adjustTooltipPosition(buttonElement) {
   const tooltip = buttonElement.querySelector('.tooltip');
   const buttonRect = buttonElement.getBoundingClientRect();
@@ -120,13 +105,11 @@ function adjustTooltipPosition(buttonElement) {
   }
 }
 
-// Adjust tooltips on resize
 window.addEventListener('resize', () => {
   const upgradeButtons = document.querySelectorAll('.upgrade-button');
   upgradeButtons.forEach(adjustTooltipPosition);
 });
 
-// Adjust tooltips on page load
 document.addEventListener('DOMContentLoaded', () => {
   const upgradeButtons = document.querySelectorAll('.upgrade-button');
   upgradeButtons.forEach(adjustTooltipPosition);
